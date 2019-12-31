@@ -11,7 +11,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-
+.text--bold{
+	font-weight: bold;
+}
+.text--center{
+	text-align: center;
+}
 @font-face {
   font-family: 'Font Awesome';
   font-style: normal;
