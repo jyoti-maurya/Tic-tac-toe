@@ -27,11 +27,72 @@ code {
        url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/fonts/fontawesome-webfont.woff?v=4.1.0') format('woff'), /* Modern Browsers */
        url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/fonts/fontawesome-webfont.woff?v=4.1.0') format('truetype');
 }
+.start-game{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -60%);
+}
+input[name=start_game]{
+  -webkit-appearance: none;
+}
+label{
+  /*padding: 0 1em;*/
+}
+label::after{
+  content: "";
+  width: 1em;
+  height: 1em;
+  border-radius: 50%;
+  border: 1px solid;
+  position: absolute;
+  bottom: 6em;
+}
+
+#cross:checked+label:before{
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  border: 1px solid;
+  position: absolute;
+  background-color: red;
+  border-color: red;
+  bottom: 6em;
+  margin: 0.25rem;
+}
+#cross:checked+label:after{
+  border-color: red;
+}
+#zero:checked+label:before{
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  border: 1px solid;
+  position: absolute;
+  background-color: red;
+  border-color: red;
+  bottom: 6em;
+  margin: 0.25rem;
+}
+#zero:checked+label:after{
+  border-color: red;
+}
+.start-game__head{
+  line-height: 5em;
+}
 .start-game__users{
 	display: inline-flex;
 }
 .start-game--cross {
   font-family: 'Font Awesome';
+  margin-left: 1.15em;
+}
+.start-game--zero {
+  font-family: 'Font Awesome';
+  margin-left: 1.15em;
 }
 .start-game--cross::after{
 	content: "";
@@ -78,4 +139,37 @@ code {
   -moz-background-clip: text;
   background-clip: text;
  -webkit-text-fill-color:transparent;
+}
+.start-game__continue{
+  line-height: 8em;
+}
+.start-game__continue > button{
+  -webkit-appearance: none;
+  height: 3em;
+  width: 8em;
+  border: 1px solid #eee;
+  background: white;
+  border-radius: 0.5em;
+  box-shadow: aqua;
+  box-shadow: 0px 4px 7px 0px #888888;
+}
+.square{
+  -webkit-appearance: none;
+  background: white;
+  border: 1px solid #eee;
+  width: 8em;
+  height: 8em;
+}
+.game{
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translate(0, -50%);
+  color: black;
+}
+.game > .game-board{
+  margin-left: auto;
+  margin: auto;
+  width: 20em;
 }
