@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-// import logo from './logo.svg';
 import './App.css';
 import StartGame from './components/StartGame.js';
-import Board from './components/Board.js';
-import Home from './check.js';
+import Game from './components/Game.js';
+import { CalculateWinner } from './components/CalculateWinner.js';
 
 
 class App extends Component {
@@ -12,11 +11,7 @@ class App extends Component {
     this.state = {
       gameStarted: false,
       squares: Array(9).fill(null),
-      // history: [{
-      // }],
-      // stepNumber: 0,
       xIsNext: true,
-      // turn: "",
     };
   }
   startGame(){
@@ -29,7 +24,9 @@ class App extends Component {
           this.setState({
             gameStarted: true,
           });
-          if(start_inputs[i].checked.value == 'zero'){
+          console.log('startttttttt');
+          console.log(start_inputs[i].value);
+          if(start_inputs[i].value === 'zero'){
             this.setState({
               xIsNext: false,
             });
@@ -42,12 +39,21 @@ class App extends Component {
     }
   }
 
+  handleClick(i){
+    const squares = this.state.squares.slice();
+    if (CalculateWinner(squares) || squares[i]) {
+      return;
+    }
+    squares[i] = this.state.xIsNext ? 'X' : 'O';
+    this.setState({squares: squares, xIsNext: !this.state.xIsNext});
+  };
+
   render() {
     let { gameStarted } = this.state
     return (
       <React.Fragment>
         {
-          gameStarted ? <Home /> : <StartGame startGame={()=>{this.startGame()}} />
+          gameStarted ? <Game xIsNext={this.state.xIsNext} squares={this.state.squares} handleClick={(i)=>{this.handleClick(i)}} /> : <StartGame startGame={()=>{this.startGame()}} />
         }
       </React.Fragment>
     );

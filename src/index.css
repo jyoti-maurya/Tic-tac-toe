@@ -159,6 +159,15 @@ label::after{
   border: 1px solid #eee;
   width: 8em;
   height: 8em;
+  margin: -0.2em;
+  outline: none;
+}
+.square > div{
+  height: 5em;
+  width: 5em;
+  line-height: 4em;
+  float: left;
+  outline: none;
 }
 .game{
   position: absolute;
@@ -171,5 +180,9 @@ label::after{
 .game > .game-board{
   margin-left: auto;
   margin: auto;
-  width: 20em;
+  width: 19.5em;
+}
+.game-info{
+  text-align: center;
+  line-height: 5em;
 }
